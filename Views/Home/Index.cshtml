@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center w-100">
     <h1 class="display-4">Welcome</h1>
     <form method="post" asp-controller="Home" asp-action="ExportPDF" id="pdfForm">
     <div class="w-100 d-flex flex-row justify-content-end align-content-center">
@@ -12,66 +12,69 @@
             <button id="btnExportPdf" class="button border border-dark border-2 p-1 text-black text-decoration-none m-2">Pdf Download</button>
             <a href="/Home/ExportCSV" class="button border border-dark border-2 p-1 text-black text-decoration-none m-2">Export CSV</a>
     </div>
-    
-    <div id="pdfData">
-        <table border="1">
+
+        <div id="pdfData" class="w-100 ms-5">
+        <table border="1" class="w-100">
             <thead>
-                <tr>
-                    <th>
+                <tr class="border border-1 border-dark">
+                        <th class="border-end border-1 border-dark">
                         Id
                     </th>
-                    <th>
+                        <th class="border-end border-1 border-dark">
                         Name
                     </th>
-                    <th>
+                        <th class="border-end border-1 border-dark">
                         Logo
                     </th>
-                    <th>
+                    <th class="border-end border-1 border-dark">
                         Address
                     </th>
-                    <th>
+                    <th class="border-end border-1 border-dark">
                         Email
                     </th>
-                    <th>
+                    <th class="border-end border-1 border-dark">
                         Contact
                     </th>
-                    <th>
+                    <th class="border-end border-1 border-dark">
                         IsActive
+                    </th>
+                    <th>
+                        Features
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
+                    <tr class="border border-1 border-dark">
+                        <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorId)
                         </td>
-                        <td>
+                            <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorName)
                         </td>
-                        <td>
+                            <td class="border-end border-1 border-dark">
                             <img width="30%" height="30%" src="@Url.Content(item.InvestorLogo)" alt="image" />
                             @* @Html.DisplayFor(modelItem => item.InvestorLogo) *@
                         </td>
-                        <td>
+                            <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorAddress)
                         </td>
-                        <td>
+                            <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorEmail)
                         </td>
-                        <td>
+                            <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorContact)
                         </td>
-                        <td>
+                            <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorActive)
                         </td>
-                        <td class="d-flex flex-row justify-content-around align-content-center">
-                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/InvestorView?id=@Url.Content(item.InvestorId.ToString())">View</a>
-                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/InvestorView?id=@(item.InvestorId)">PDF</a>
-                                <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/Demo?id=@(item.InvestorId)">Form PDF</a>
-                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/EditView?id=@(item.InvestorId)">Edit</a>
-                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/DeleteInvestor?id=@(item.InvestorId)">Del</a>
+                        <td class="d-flex flex-row justify-content-around align-content-center pt-4">
+                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/InvestorView?id=@Url.Content(item.InvestorId.ToString())">View</a>
+                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/InvestorView?id=@(item.InvestorId)">PDF</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/Demo?id=@(item.InvestorId)">Form PDF</a>
+                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/EditView?id=@(item.InvestorId)">Edit</a>
+                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/DeleteInvestor?id=@(item.InvestorId)">Del</a>
                         </td>
                     </tr>
                 }
@@ -79,6 +82,7 @@
         </table>
     </div>
     </form>
+    @* <img height="300" src="/Bar_QrCode/Qrcode?inves=Id:@(Model.FirstOrDefault().InvestorId),Name:@(Model.FirstOrDefault().InvestorName),Email:@(Model.FirstOrDefault().InvestorEmail),Contact:@(Model.FirstOrDefault().InvestorContact)" /> *@
 </div>
 
 <script>

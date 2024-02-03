@@ -25,13 +25,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Demo" asp-route-id="1">Form Demo</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container m-0 p-0">
-        <main role="main" class="pb-3">
+    <div class="container m-0 p-0 w-100">
+        <main role="main" class="pb-3 w-100">
             @RenderBody()
         </main>
     </div>

@@ -3,12 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using mvc4.Models;
 using SelectPdf;
 using System.Diagnostics;
+using System.Collections.Generic;
 using System.Reflection.Metadata;
 using SelectPdf;
 using HtmlToPdf = SelectPdf.HtmlToPdf;
 using mvc4.Data;
 using Microsoft.Net.Http.Headers;
 using System.Text;
+using ZXing;
+using ZXing.QrCode;
+using ZXing.Common;
+using ZXing.Windows.Compatibility;
+using System.Drawing;
 
 namespace mvc4.Controllers
 {
@@ -93,7 +99,7 @@ namespace mvc4.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return null;
+                return RedirectToAction("Index");
             }
         }
 
@@ -119,16 +125,7 @@ namespace mvc4.Controllers
         // pdf using html string
         [HttpPost]
         public IActionResult ExportPDF(string html)
-        {
-            //string tHtml = html.Replace("StrTag", "<").Replace("EndTag", ">");
-            //html = tHtml;
-            //HtmlToPdf htp = new HtmlToPdf();
-            //SelectPdf.PdfDocument pdfD = htp.ConvertHtmlString(html);
-            //byte[] pdf = pdfD.Save();
-            //pdfD.Close();
-
-            //return File(pdf,"application/pdf","StudentList.pdf");
-
+        {   
             HtmlToPdf converter = new HtmlToPdf();
             PdfDocument doc = converter.ConvertHtmlString(html, "http://localhost:5070");
             return new FileContentResult(doc.Save(), new MediaTypeHeaderValue("application/pdf"))
@@ -152,6 +149,9 @@ namespace mvc4.Controllers
                 return View();
             }
         }
+
+        
+        
 
     }
 }
