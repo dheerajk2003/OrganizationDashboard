@@ -1,0 +1,96 @@
+﻿@model IEnumerable<mvc4.Models.InvestorModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="post" asp-controller="Home" asp-action="ExportPDF" id="pdfForm">
+    <div class="w-100 d-flex flex-row justify-content-end align-content-center">
+        <input type="text" name="html" id="html" style="display: none;" />
+            <button id="btnExportPdf" class="button border border-dark border-2 p-1 text-black text-decoration-none m-2">Pdf Download</button>
+            <a href="/Home/ExportCSV" class="button border border-dark border-2 p-1 text-black text-decoration-none m-2">Export CSV</a>
+    </div>
+    
+    <div id="pdfData">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Logo
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Contact
+                    </th>
+                    <th>
+                        IsActive
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvestorId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvestorName)
+                        </td>
+                        <td>
+                            <img width="30%" height="30%" src="@Url.Content(item.InvestorLogo)" alt="image" />
+                            @* @Html.DisplayFor(modelItem => item.InvestorLogo) *@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvestorAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvestorEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvestorContact)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvestorActive)
+                        </td>
+                        <td class="d-flex flex-row justify-content-around align-content-center">
+                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/InvestorView?id=@Url.Content(item.InvestorId.ToString())">View</a>
+                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/InvestorView?id=@(item.InvestorId)">PDF</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/Demo?id=@(item.InvestorId)">Form PDF</a>
+                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/EditView?id=@(item.InvestorId)">Edit</a>
+                            <a class="button border border-dark border-2 text-black text-decoration-none m-1 p-1" href="/Home/DeleteInvestor?id=@(item.InvestorId)">Del</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </form>
+</div>
+
+<script>
+    const btn = document.getElementById("btnExportPdf");
+    const pdfData = document.getElementById("pdfData");
+    const htmlData = document.getElementById("html");
+    pdfData.onload = htmlData.value = pdfData.innerHTML;
+
+    // function printPdf(htmlId) {
+    //     var data = document.getElementById(htmlId).innerHTML;
+    //     htmlData.value = data;
+    //     document.getElementById("pdfForm").submit();
+    //     console.log(htmlId);
+    // }
+</script>

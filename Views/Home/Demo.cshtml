@@ -1,0 +1,297 @@
+﻿@model mvc4.Models.InvestorModel
+
+@{
+    // This will remove the header from the page, but this will also remove bootstrap.
+    // Layout = null;
+}
+
+@{
+<Section class="p-3">
+  <div class="w-100 d-flex flex-column border border-1 border-dark overflow-hidden">
+    <div class="w-100 p-1 d-flex flex-row justify-content-between border-bottom border-1 border-dark">
+      <div class="col-3"> Lorem ipsum dolor sit amet consectetur </div>
+      <div class="col-6"> </div>
+      <div class="col-3"> Lorem ipsum dolor sit amet consectetur </div>
+    </div>
+    <div class="w-100 p-1 d-flex flex-row justify-content-between border-bottom border-1 border-dark">
+      <div class="col-3 w-25 d-flex align-items-center">
+        <img class="w-25"
+          src="https://th.bing.com/th?id=OIP.Qj16nTwRcJK668EFhsQt1wAAAA&w=176&h=176&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" />
+      </div>
+      <div class="col-6">
+        <h4 class="text-center fw-bold text-xl-center">Reliance Jio Limited</h4>
+        <p class="text-center m-0">Stock and otehr</p>
+        <p class="text-center m-0">Services provided are not for sell</p>
+
+      </div>
+      <div class="col-3 d-flex justify-content-center align-items-center">
+
+      </div>
+    </div>
+    <div class="w-100 d-flex flex-row border-bottom border-1 border-dark">
+      <div class="col-9">
+        <div class="d-flex flex-row">
+          <div class="col-3">
+            <p class="m-0 p-0 fw-bold">Name</p>
+            <p class="m-0 p-0 fw-bold">Email</p>
+            <p class="m-0 p-0 fw-bold">Contact</p>
+            <p class="m-0 p-0 fw-bold">Date</p>
+            <p class="m-0 p-0 fw-bold">Active</p>
+            <p class="m-0 p-0 fw-bold">Demo desc</p>
+            <p class="m-0 p-0 fw-bold">Demo desc</p>
+            <p class="m-0 p-0 fw-bold">Demo desc</p>
+          </div>
+          <div class="col-6">
+            <div class="m-0 p-0">
+              <p class="m-0 p-0">@(Model.InvestorName)</p>
+              <p class="m-0 p-0">@(Model.InvestorEmail)</p>
+              <p class="m-0 p-0">@(Model.InvestorContact)</p>
+              <p class="m-0 p-0">@(Model.InvestorDate)</p>
+              <p class="m-0 p-0">@(Model.InvestorActive)</p>
+              <p class="m-0 p-0">Demo desc</p>
+              <p class="m-0 p-0">Demo desc</p>
+              <p class="m-0 p-0">Demo desc</p>
+            </div>
+          </div>
+        </div class="d-flex flex-row">
+        <div>
+
+        </div>
+      </div>
+
+      <div
+        class="col-3 w-25 d-flex flex-column align-items-center border-start border-top border-bottom  border-1 border-dark m-2">
+        <div class="w-100 border-bottom border-1 border-dark">
+          <div>
+            <p class="d-inline">Clint No.</p>
+            <p class="d-inline">894989</p>
+          </div>
+          <div>
+            <p class="d-inline">Investor No.</p>
+            <p class="d-inline">@(Model.InvestorId)</p>
+          </div>
+        </div>
+        <div class="w-100 border-bottom border-1 border-dark">
+          <p class="m-0">BarCode</p>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <img class="w-50" src="~/photo.png" />
+          <img class="w-50" height="30" src="~/photo.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="border-dark border-1 border-bottom">
+      <p class="text-center m-0">@(Model.InvestorAddress)</p>
+    </div>
+    <div class="w-100 row border-dark border-1 border-bottom"> 
+      <div class="col-4">
+        <p class="text-center">Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-4">
+        <p class="text-center">Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-4">
+        <p class="text-center">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+
+    <div class="border-dark border-1 border-bottom">
+      <h6>Details of graduation</h6>
+    </div>
+    <div class="row border-dark border-1 border-bottom">
+      <div class="col-7 border-end border-1 border-dark">
+        <table width="100%">
+          <thead>
+            <tr>
+              <th>Item1</th>
+              <th>Item2</th>
+              <th>Item3</th>
+              <th>Item4</th>
+              <th>Item5</th>
+              <th>Item6</th>
+              <th>Item7</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+            </tr>
+            <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+            </tr>
+            <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+            </tr>
+            <tr>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+              <td>Item</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-5 p-0">
+        <div class="border-bottom border-1 border-dark m-0">
+            <p class="m-0 p-0">For Personal use</p>
+        </div>
+        <div>
+            <div class="row">
+                <p class="col-4 m-0">Demo : </p>
+                <p class="col-8 m-0">Demo Descriptoin</p>
+            </div>
+            <div class="row">
+                <p class="col-4 m-0">Demo : </p>
+                <p class="col-8 m-0">Demo Descriptoin</p>
+            </div>
+            <div class="row">
+                <p class="col-4 m-0">Demo : </p>
+                <p class="col-8 m-0">Demo Descriptoin</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-100 m-0 row border-bottom border-1 border-dark">
+        <div class="col-1">
+            <span>Some Text</span>
+        </div>
+        <div class="col-11">
+            <div class="row">
+                <table class="col-4" border="1">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="3">Part-I</th>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <th>Roll no</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 1</td>
+                            <td>Data 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="col-4" border="1">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="3">Part-II</th>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <th>Roll no</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 1</td>
+                            <td>Data 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="col-4" border="1">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="3">Part-III</th>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <th>Roll no</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 1</td>
+                            <td>Data 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+            
+            </div>
+            <div>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="w-100 row border-bottom border-1 border-dark">
+        <div class="col-3">Some text will come here </div>
+        <div class="col-3 border-start border-1 border-dark p-0">
+            <div class="border-bottom border-1 border-dark">
+                <p>Header</p>
+            </div>
+            Lorem Ipsum is simply dummy
+        </div>
+        <div class="col-3 border-start border-1 border-dark p-0">
+            <div class="border-bottom border-1 border-dark">
+                <p>Header</p>
+            </div>
+            Lorem Ipsum is simply dummy 
+        </div>
+        <div class="col-3 border-start border-1 border-dark p-0">
+            <div class="border-bottom border-1 border-dark">
+                <p>Header</p>
+            </div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+    </div>
+
+    <div class="w-100 row border-bottom border-1 border-dark">
+        <p class="col-6 m-0">Lorem Ipsum is simply dummy text : No</p>
+        <p class="col-3 border-start border-1 border-dark m-0">Lorem Ipsum is simply dummy text</p>
+        <p class="col-3 border-start border-1 border-dark m-0">Lorem Ipsum is simply dummy text</p>
+    </div>
+
+    <div class="w-100 row border-bottom border-1 border-dark">
+        <div class="col-6 border-end border-1 border-dark">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+        <div class="col-6">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+    </div>
+
+    <div class="w-100 row">
+        <div>
+            <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+    </div>
+
+  </div>
+
+</Section>
+}

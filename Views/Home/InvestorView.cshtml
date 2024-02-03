@@ -1,0 +1,109 @@
+﻿@model mvc4.Models.InvestorModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    Layout = null;
+}
+    @* <form asp-controller="Home" asp-action="ExportPDF">
+        <input type="text" name="html" id="html" value="hello" style="display: none;" />
+        <button type="submit">PDF</button>
+    </form> *@
+    <a href="/Home/PrintPDF?url=http://localhost:5070/Home/InvestorView?id=@(Model.InvestorId)" >Print Pdf</a>
+    <div class="outerContainer" id="htmlData">
+        <style>
+            p{
+                font-size: 1.5rem;
+            }
+            h1{
+                font-size: 3rem;
+            }
+            h3{
+                font-size: 2.5rem;
+            }
+            #htmlData{
+                width: 100%;
+                height: auto;
+                box-sizing:border-box;
+                padding: 0rem 10rem;
+                overflow: hidden;
+            }
+            #htmlDatas{
+                width: 100%;
+                height: auto;
+                box-sizing: border-box;
+                padding: 0rem 1rem;
+            }
+            .ClientCont{
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            .ClientCont h1{
+                text-align:center;
+            }
+            .InvContainer{
+                width: 100%;
+                height: 10rem;
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 2rem;
+            }
+            .NameCon{
+                width: 50%;
+            }
+            .ImgCon{
+                width: 50%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content:flex-end;
+            }
+
+            .ImgCon img{
+                height: 100%;
+            }
+
+            .DescCon, .InfoCon{
+                margin-bottom: 2rem;
+            }
+
+
+        </style>
+        <div id="htmlDatas">
+            <div class="ClientCont">
+                <h1>Demo Client</h1>
+            </div>
+            <hr />
+            <div class="InvContainer">
+                <div class="NameCon">
+                    <p class="Id">@Model.InvestorId</p>
+                    <h3 class="Name">@Model.InvestorName</h3>
+                    
+                </div>
+                <div class="ImgCon">
+                    <img src="~/@Url.Content(Model.InvestorLogo)" />
+                </div>
+               
+            </div>
+            <hr />
+            <div class="DescCon">
+                <p class="Address">@Model.InvestorAddress</p>
+                <p class="Date">@Model.InvestorDate</p>
+                <p class="Active">@Model.InvestorActive</p>
+
+            </div>
+            <hr />
+            <div class="InfoCon">
+                <span>Email</span> <p>@Model.InvestorEmail</p>
+                <span>Contact</span> <p>@Model.InvestorContact</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const htmlData = document.getElementById("htmlD");
+        const html = document.getElementById("html");
+        htmlData.onload = html.value = htmlData.innerHTML;
+
+    </script>

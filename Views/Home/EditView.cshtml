@@ -1,0 +1,19 @@
+﻿@model mvc4.Models.InvestorModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <div class="w-100 h-100 d-flex flex-column align-content-center justify-content-center px-5">
+        <h1 class="text-center m-3" >Edit</h1>
+        <form asp-controller="Home" asp-action="EditInvestor" class="mx-lg-5 d-flex flex-column align-items-center justify-content-center">
+            <input type="hidden" name="InvestorId" id="id" value="@(Model.InvestorId)" />
+            <input type="text" name="InvestorName" id="name" value="@(Model.InvestorName)" class="form-control" />
+            <input type="text" name="InvestorEmail" id="email" value="@(Model.InvestorEmail)" class="form-control" />
+            <input type="text" name="InvestorAddress" id="address" value="@(Model.InvestorAddress)" class="form-control" />
+            <input type="text" name="InvestorContact" id="contact" value="@(Model.InvestorContact)" class="form-control" />
+            <input type="date" name="InvestorDate" id="date" value="@(Model.InvestorDate)" class="form-control" />
+            <button type="submit"  class="btn bg-primary align-content-center text-white m-3">Update</button>
+        </form>
+    </div>
+}
