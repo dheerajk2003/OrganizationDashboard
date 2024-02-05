@@ -11,8 +11,13 @@ namespace mvc4.Models
         public string? InvestorEmail { get; set; }
         public string? InvestorPassword { get; set; }
         public string? InvestorContact { get; set; }
+        public string? InvestorContactA { get; set; }
         public string? InvestorLogo { get; set; }
-        public DateOnly InvestorDate { get; set; }
+        public DateOnly InvestorDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         public int InvestorActive { get; set; }
+        [Required]
+        public int FundId { get; set; }
+        [Required]
+        public int ClientId { get; set; }
     }
 }

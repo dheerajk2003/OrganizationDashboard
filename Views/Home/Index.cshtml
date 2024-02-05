@@ -36,6 +36,15 @@
                         Contact
                     </th>
                     <th class="border-end border-1 border-dark">
+                        Client
+                    </th>
+                    <th class="border-end border-1 border-dark">
+                        Fund
+                    </th>
+                    <th class="border-end border-1 border-dark">
+                        DOR
+                    </th>
+                    <th class="border-end border-1 border-dark">
                         IsActive
                     </th>
                     <th>
@@ -54,19 +63,28 @@
                             @Html.DisplayFor(modelItem => item.InvestorName)
                         </td>
                             <td class="border-end border-1 border-dark">
-                            <img width="30%" height="30%" src="@Url.Content(item.InvestorLogo)" alt="image" />
+                            <img height="150px" src="~/Images/@Url.Content(item.InvestorLogo)" alt="image" />
                             @* @Html.DisplayFor(modelItem => item.InvestorLogo) *@
                         </td>
                             <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorAddress)
                         </td>
-                            <td class="border-end border-1 border-dark">
+                        <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorEmail)
                         </td>
-                            <td class="border-end border-1 border-dark">
+                        <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorContact)
                         </td>
-                            <td class="border-end border-1 border-dark">
+                        <td class="border-end border-1 border-dark">
+                            @Html.DisplayFor(modelItem => item.ClientId)
+                        </td>
+                        <td class="border-end border-1 border-dark">
+                            @Html.DisplayFor(modelItem => item.FundId)
+                        </td>
+                        <td class="border-end border-1 border-dark">
+                            @Html.DisplayFor(modelItem => item.InvestorDate)
+                        </td>
+                        <td class="border-end border-1 border-dark">
                             @Html.DisplayFor(modelItem => item.InvestorActive)
                         </td>
                         <td class="d-flex flex-row justify-content-around align-content-center pt-4">

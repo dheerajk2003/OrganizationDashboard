@@ -11,5 +11,7 @@ namespace mvc4.Data
         }
         public DbSet<RegistrationModel> Registration { get; set; }
         public DbSet<InvestorModel> InvestorTable { get; set; }
+        public DbSet<FundModel> FundTable { get; set; } 
+        public DbSet<ClientModel> ClientTable { get; set; }
     }
 }

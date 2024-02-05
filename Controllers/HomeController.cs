@@ -15,6 +15,7 @@ using ZXing.QrCode;
 using ZXing.Common;
 using ZXing.Windows.Compatibility;
 using System.Drawing;
+using mvc4.ViewModels;
 
 namespace mvc4.Controllers
 {
@@ -150,8 +151,42 @@ namespace mvc4.Controllers
             }
         }
 
-        
-        
+        public IActionResult InvestorReg()
+        {
+            var Clients = _context.ClientTable.Select(u => new ClientModel { ClientId = u.ClientId, ClientName = u.ClientName }).ToList();
+            var Funds = _context.FundTable.Select(u => new FundModel { FundId = u.FundId, FundName = u.FundName }).ToList();
 
+            //List<List<object>> tList = new List<List<object>>();
+            //tList.Add((List<object>)Clients.Cast<object>());
+            //tList.Add((List<object>)Funds.Cast<object>());
+
+            IdListModel idm = new IdListModel();
+            idm.Fm = Funds;
+            idm.Cm = Clients;
+
+            return View(idm);
+        }
+        [HttpPost]
+        public IActionResult AddInvestor(InvestorModel model, IFormFile file)
+        {
+            if (file != null && file.Length > 0)
+            {
+                string fname = Guid.NewGuid().ToString() + file.FileName;
+                string fpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", fname);
+                using (var fileStream = new FileStream(fpath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                model.InvestorLogo = fname;
+            }
+            else
+            {
+                model.InvestorLogo = "photo.png";
+            }
+            model.InvestorActive = 1;
+            _context.InvestorTable.Add(model);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
