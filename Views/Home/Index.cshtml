@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mvc4.Models.InvestorModel>
+﻿@model IEnumerable<mvc4.ViewModels.JoinViewModel>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -44,9 +44,9 @@
                     <th class="border-end border-1 border-dark">
                         DOR
                     </th>
-                    <th class="border-end border-1 border-dark">
+                    @* <th class="border-end border-1 border-dark">
                         IsActive
-                    </th>
+                    </th> *@
                     <th>
                         Features
                     </th>
@@ -57,42 +57,42 @@
                 {
                     <tr class="border border-1 border-dark">
                         <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorId)
+                            @Html.DisplayFor(modelItem => item.Investor.InvestorId)
                         </td>
                             <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorName)
+                                @Html.DisplayFor(modelItem => item.Investor.InvestorName)
                         </td>
                             <td class="border-end border-1 border-dark">
-                            <img height="150px" src="~/Images/@Url.Content(item.InvestorLogo)" alt="image" />
+                                <img height="150px" src="~/Images/@Url.Content(item.Investor.InvestorLogo)" alt="image" />
                             @* @Html.DisplayFor(modelItem => item.InvestorLogo) *@
                         </td>
                             <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorAddress)
+                                @Html.DisplayFor(modelItem => item.Investor.InvestorAddress)
                         </td>
                         <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorEmail)
+                                @Html.DisplayFor(modelItem => item.Investor.InvestorEmail)
                         </td>
                         <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorContact)
+                                @Html.DisplayFor(modelItem => item.Investor.InvestorContact)
                         </td>
                         <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.ClientId)
+                                @Html.DisplayFor(modelItem => item.Client.ClientName)
                         </td>
                         <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.FundId)
+                            @Html.DisplayFor(modelItem => item.Fund.FundName)
                         </td>
                         <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorDate)
+                                @Html.DisplayFor(modelItem => item.Investor.InvestorDate)
                         </td>
-                        <td class="border-end border-1 border-dark">
-                            @Html.DisplayFor(modelItem => item.InvestorActive)
-                        </td>
+                        @* <td class="border-end border-1 border-dark">
+                                @Html.DisplayFor(modelItem => item.Investor.InvestorActive)
+                        </td> *@
                         <td class="d-flex flex-row justify-content-around align-content-center pt-4">
-                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/InvestorView?id=@Url.Content(item.InvestorId.ToString())">View</a>
-                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/InvestorView?id=@(item.InvestorId)">PDF</a>
-                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/Demo?id=@(item.InvestorId)">Form PDF</a>
-                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/EditView?id=@(item.InvestorId)">Edit</a>
-                            <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/DeleteInvestor?id=@(item.InvestorId)">Del</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/InvestorView?id=@Url.Content(item.Investor.InvestorId.ToString())">View</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/InvestorView?id=@(item.Investor.InvestorId)">PDF</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/PrintPDF?url=http://localhost:5070/Home/Demo?id=@(item.Investor.InvestorId)">Form PDF</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/EditView?id=@(item.Investor.InvestorId)">Edit</a>
+                                <a class="button border border-dark border-2 text-black text-decoration-none p-1" href="/Home/DeleteInvestor?id=@(item.Investor.InvestorId)">Del</a>
                         </td>
                     </tr>
                 }

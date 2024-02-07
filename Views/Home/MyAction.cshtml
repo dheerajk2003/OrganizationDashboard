@@ -1,0 +1,18 @@
+﻿@using mvc4.ViewModels
+@model IEnumerable<mvc4.ViewModels.JoinViewModel>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <table>
+        <tbody>
+            @foreach(JoinViewModel jvm in Model){
+                <tr>
+                    <td>@jvm.Fund.FundName</td>
+                    <td>@jvm.Investor.InvestorName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

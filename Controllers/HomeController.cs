@@ -36,9 +36,15 @@ namespace mvc4.Controllers
 
         public IActionResult Index()
         {
-            List<InvestorModel> users = new List<InvestorModel>();
-            users = _context.InvestorTable.ToList();
-            return View(users);
+            //List<InvestorModel> users = new List<InvestorModel>();
+            //users = _context.InvestorTable.ToList();
+            //return View(users);
+
+            var myData = from i in _context.InvestorTable
+                         join f in _context.FundTable on i.FundId equals f.FundId 
+                         join c in _context.ClientTable on i.ClientId equals c.ClientId
+                         select new JoinViewModel { Investor = i, Fund = f, Client = c };
+            return View(myData);
         }
 
         //print pdf of Investors form
@@ -187,6 +193,15 @@ namespace mvc4.Controllers
             _context.InvestorTable.Add(model);
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult MyAction()
+        {
+            var myData = from i in _context.InvestorTable
+                         join f in _context.FundTable on i.FundId equals f.FundId into fi
+                         from f in fi.DefaultIfEmpty()
+                         select  new JoinViewModel { Investor = i , Fund = f };
+            return View(myData);
         }
     }
 }
