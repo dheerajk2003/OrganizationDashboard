@@ -98,7 +98,12 @@
                 }
             </tbody>
         </table>
+        
     </div>
+    </form>
+    <form action="/Home/PostFromCsv" enctype="multipart/form-data" method="post">
+        <input type="file" id="file" name="file" />
+        <button type="submit">Submit Csv</button>
     </form>
     @* <img height="300" src="/Bar_QrCode/Qrcode?inves=Id:@(Model.FirstOrDefault().InvestorId),Name:@(Model.FirstOrDefault().InvestorName),Email:@(Model.FirstOrDefault().InvestorEmail),Contact:@(Model.FirstOrDefault().InvestorContact)" /> *@
 </div>
